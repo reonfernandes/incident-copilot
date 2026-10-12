@@ -1,0 +1,21 @@
+server:
+    port: 8081
+
+spring:
+    application:
+        name: ingest-service
+    datasource:
+        url: jdbc:postgresql://localhost:5432/ingest_service
+        username: copilot
+        password: copilot
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        show-sql: true
+    kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
+            properties:
+                spring.json.add.type.headers: false
