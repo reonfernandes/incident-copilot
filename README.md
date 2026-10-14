@@ -22,7 +22,7 @@ The infrastructure runs locally in Docker:
 
 | Service    | Container     | Port  | Purpose                                        |
 |------------|---------------|-------|------------------------------------------------|
-| PostgreSQL | `ic-postgres` | 5432  | Main database, with pgvector for vector search |
+| PostgreSQL | `ic-postgres` | 5433  | Main database, with pgvector for vector search |
 | Redis      | `ic-redis`    | 6379  | Caching and duplicate detection                |
 | Kafka      | `ic-kafka`    | 9092  | Event streaming between services               |
 | Ollama     | `ic-ollama`   | 11434 | Runs the AI model locally (optional)           |
