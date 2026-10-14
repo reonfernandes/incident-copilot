@@ -5,7 +5,7 @@ spring:
     application:
         name: ingest-service
     datasource:
-        url: jdbc:postgresql://localhost:5432/ingest_service
+        url: jdbc:postgresql://localhost:5433/ingest_service
         username: copilot
         password: copilot
     jpa:
@@ -19,3 +19,7 @@ spring:
             value-serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
             properties:
                 spring.json.add.type.headers: false
+
+incident-copilot:
+    kafka:
+        raw-topic: incidents.raw

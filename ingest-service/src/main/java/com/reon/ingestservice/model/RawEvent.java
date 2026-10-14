@@ -1,10 +1,7 @@
 package com.reon.ingestservice.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -15,6 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "raw_events")
+@Builder
 public class RawEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
