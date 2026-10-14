@@ -33,7 +33,7 @@ public class RawEventPublisherImpl implements RawEventPublisher {
             if (ex == null) {
                 log.info("event published successfully.. {}", result.getRecordMetadata());
             } else {
-                log.info("failed to publish event: {}", message.eventId());
+                log.error("failed to publish event: {}", message.eventId(), ex);
             }
         });
 
