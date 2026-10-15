@@ -21,6 +21,7 @@
 
     <modules>
         <module>ingest-service</module>
+        <module>demo-app</module>
     </modules>
 
     <properties>

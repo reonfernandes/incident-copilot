@@ -7,7 +7,6 @@
         <artifactId>incident-copilot</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.reon</groupId>
     <artifactId>ingest-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ingest-service</name>
