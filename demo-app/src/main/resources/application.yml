@@ -1,0 +1,20 @@
+server:
+    port: 8085
+
+spring:
+    application:
+        name: demo-app
+
+    threads:
+        virtual:
+            enabled: true
+
+    cloud:
+        openfeign:
+            client:
+                config:
+                  ingest-service:
+                      connect-timeout: 1000
+                      read-timeout: 2000
+incident-copilot:
+    ingest-url: http://localhost:8081
