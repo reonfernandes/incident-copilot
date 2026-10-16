@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,20 +16,28 @@ import java.util.Map;
 @RequestMapping("/api/v1/orders")
 @Slf4j
 public class OrderController {
+
+    private final Map<Long, Order> orders = new HashMap<>();
+
+    public OrderController() {
+        for (long i = 1; i <= 100; i++) {
+            orders.put(i, Order.builder()
+                    .id(i)
+                    .item("Item " + i)
+                    .amount(BigDecimal.valueOf(i * 10))
+                    .status("CONFIRMED")
+                    .build());
+        }
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Void> fetchOrder (@PathVariable Long id) {
+    public ResponseEntity<Order> fetchOrder(@PathVariable Long id) {
         log.info("fetching order for id: {}", id);
 
-        Map<Long, Order> ids = new HashMap<>();
+        Order order = orders.get(id);
+        // Unknown ids leave order as null, so this throws a real NullPointerException
+        log.info("order {} has status: {}", id, order.status());
 
-        for (long i = 0; i <= 100; i++) {
-            ids.put(i, null);
-        }
-
-        if (ids.containsKey(id)) {
-            ids.get(id);
-        }
-
-        return null;
+        return ResponseEntity.ok(order);
     }
 }
